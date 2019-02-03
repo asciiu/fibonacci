@@ -1,5 +1,12 @@
 use std::io;
 
+fn fib(n: i32) -> i32 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => fib(n-1) + fib(n-2)
+    }
+}
 fn main() {
     loop {
         println!("Enter fib num:");
@@ -14,7 +21,8 @@ fn main() {
             Ok(num) => num,
             Err(_) => continue
         };
+        let fibn: i32 = fib(num);
 
-        println!("entered: {}", num);
+        println!("fib({}) = {}", num, fibn);
     }
 }
